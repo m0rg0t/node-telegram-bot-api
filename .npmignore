@@ -19,3 +19,9 @@ lib-doc/
 .babelrc
 .gitignore
 .git
+
+# Maintenance-only tooling
+.github/
+eslint.config.cjs
+scripts/
+.nvmrc
