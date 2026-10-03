@@ -360,7 +360,7 @@ class TelegramBot extends EventEmitter {
     }
 
     filename = filename || 'filename';
-    contentType = contentType || mime.lookup(filename);
+    contentType = contentType || mime.getType(filename);
     if (process.env.NTBA_FIX_350) {
       contentType = contentType || 'application/octet-stream';
     } else {
@@ -1458,10 +1458,10 @@ class TelegramBot extends EventEmitter {
      * We need to ensure backwards-compatibility while maintaining
      * consistency of the method signatures throughout the library. */
     if (typeof callbackQueryId === 'object') {
-      /* eslint-disable no-param-reassign, prefer-rest-params */
+      /* eslint-disable no-param-reassign */
       deprecate('The method signature answerCallbackQuery([options]) has been deprecated since v0.29.0');
       form = callbackQueryId;
-      /* eslint-enable no-param-reassign, prefer-rest-params */
+      /* eslint-enable no-param-reassign */
     } else {
       form.callback_query_id = callbackQueryId;
     }
